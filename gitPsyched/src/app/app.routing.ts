@@ -4,17 +4,18 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SignupComponent } from './signup/signup.component';
-import { LandingComponent } from './landing/landing.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+// import { ProfileComponent } from './profile/profile.component';
+// import { SignupComponent } from './signup/signup.component';
+import { post1Component } from './posts/post1/post1.component';
+// import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { post1Module } from './posts/post1/post1.module';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent },
+    // { path: 'user-profile',     component: ProfileComponent },
+    // { path: 'signup',           component: SignupComponent },
+    { path: 'post1',          component: post1Component },
+    // { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -4,10 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
+import { post1Module } from './posts/post1/post1.module';
+// import { MaterialModule }  from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
-import { LandingComponent } from './landing/landing.component';
+import { post1Component } from './posts/post1/post1.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -19,7 +22,6 @@ import { HomeModule } from './home/home.module';
   declarations: [
     AppComponent,
     SignupComponent,
-    LandingComponent,
     ProfileComponent,
     NavbarComponent,
     FooterComponent
@@ -28,9 +30,11 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
+    post1Module,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

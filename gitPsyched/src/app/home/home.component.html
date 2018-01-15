@@ -19,6 +19,7 @@
         <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
     </div>
     <div class="main">
+        <app-post1></app-post1>
         <!-- <app-components></app-components> -->
         <!-- <div class="section section-dark section-nucleo-icons">
             <div class="container">
@@ -65,9 +66,18 @@
             </div>
         </div>
         <div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto">
+            <div class="container" >
+                <div fxFlexOffset="33">
+                    <!-- <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto"> -->
+                    <div style="color:White;" class="demo-icons header">
+                        <mat-card>
+                            <h3 style="text-align:center">Blog Posts</h3>
+                        </mat-card>
+                        <mat-card>Post 1</mat-card>
+                        <mat-card>Post 2</mat-card>
+                        <mat-card>Post 3</mat-card>
+                        <mat-card>Post 4</mat-card>
+                    </div>
                         <!-- <div class="card card-register">
                             <h3 class="title">Welcome</h3> -->
                             <!-- <div class="social-line text-center">
@@ -106,7 +116,7 @@
                         <div class="col text-center" routerLinkActive="active">
                             <a [routerLink]="['/signup']" class="btn btn-outline-neutral btn-round btn-lg">View Register Page</a>
                         </div> -->
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
