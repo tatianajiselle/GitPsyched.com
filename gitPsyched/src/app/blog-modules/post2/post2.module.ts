@@ -16,8 +16,7 @@ import { MatCardModule } from '@angular/material/card';
         MatCardModule
     ],
     declarations: [ Post2Component ],
-    exports: [ Post2Component
-            ],
+    exports: [ Post2Component ],
     providers: []
 })
 export class Post2Module { }

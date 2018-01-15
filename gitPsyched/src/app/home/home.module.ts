@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { post1Module } from '../posts/post1/post1.module';
+import { AboutModule } from '../blog-modules/About/About.module';
+import { Post2Module } from '../blog-modules/post2/post2.module';
 import { HomeComponent } from './home.component';
 import { MatCardModule } from '@angular/material/card';
 
@@ -16,7 +17,8 @@ import { MatCardModule } from '@angular/material/card';
         BrowserModule,
         FormsModule,
         RouterModule,
-        post1Module,
+        AboutModule,
+        Post2Module,
         MatCardModule
         // ComponentsModule
     ],
