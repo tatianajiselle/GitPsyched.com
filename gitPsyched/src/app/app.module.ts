@@ -9,9 +9,7 @@ import { post1Module } from './posts/post1/post1.module';
 import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
 import { post1Component } from './posts/post1/post1.component';
-import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -21,8 +19,6 @@ import { HomeModule } from './home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
-    ProfileComponent,
     NavbarComponent,
     FooterComponent
   ],
