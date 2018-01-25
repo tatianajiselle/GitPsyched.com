@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
+var meanDB = ' ';
 
 // Connect
 const connection = (closure) => {
     return MongoClient.connect('mongodb://localhost:27017/mean', (err, db) => {
         if (err) return console.log(err);
-
+        meanDB = db.db('mean');
         closure(db);
     });
 };
@@ -29,7 +30,7 @@ let response = {
 // Get users
 router.get('/users', (req, res) => {
     connection((db) => {
-        db.collection('users')
+        meanDB.collection('posts')
             .find()
             .toArray()
             .then((users) => {

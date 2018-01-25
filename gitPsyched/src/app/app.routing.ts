@@ -7,8 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './blog-modules/About/About.component';
 import { Post2Component } from './blog-modules/post2/post2.component';
 
-const routes: Routes =[
-    { path: 'home',             component: HomeComponent },
+const routes: Routes = [
+    { path: 'home',           component: HomeComponent },
     { path: 'About',          component: AboutComponent },
     { path: 'post2',          component: Post2Component },
     { path: '', redirectTo: 'home', pathMatch: 'full' }

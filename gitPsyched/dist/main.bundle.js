@@ -72,7 +72,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent(renderer, router, document, element, location) {
         this.renderer = renderer;
         this.router = router;
@@ -163,6 +163,8 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/shared/navbar/navbar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_footer_footer_component__ = __webpack_require__("../../../../../src/app/shared/footer/footer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_home_module__ = __webpack_require__("../../../../../src/app/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -182,7 +184,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AppModule = (function () {
+// Import the Http Module and our Data Service
+
+
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
@@ -200,9 +205,10 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */],
                 __WEBPACK_IMPORTED_MODULE_5__app_routing__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_11__home_home_module__["a" /* HomeModule */],
+                __WEBPACK_IMPORTED_MODULE_12__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_material_card__["a" /* MatCardModule */]
             ],
-            providers: [],
+            providers: [__WEBPACK_IMPORTED_MODULE_13__data_service__["a" /* DataService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -244,7 +250,7 @@ var routes = [
     { path: 'post2', component: __WEBPACK_IMPORTED_MODULE_6__blog_modules_post2_post2_component__["a" /* Post2Component */] },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
-var AppRoutingModule = (function () {
+var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
@@ -305,7 +311,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var AboutComponent = (function () {
+var AboutComponent = /** @class */ (function () {
     function AboutComponent() {
     }
     AboutComponent.prototype.ngOnInit = function () { };
@@ -349,7 +355,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AboutModule = (function () {
+var AboutModule = /** @class */ (function () {
     function AboutModule() {
     }
     AboutModule = __decorate([
@@ -377,7 +383,7 @@ var AboutModule = (function () {
 /***/ "../../../../../src/app/blog-modules/post2/post2.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main\">\n    <div class=\"section text-center\">\n    <div class=\"container\">\n        <div fxLayout=\"row\">\n            <div fxLayout=\"30\" style=\"color:black;\">\n               <h2>Metacognitive Abilites</h2>\n                <h3>Becoming Self Aware</h3>\n                <br>\n                <a style=\"color:white;\" href=\"https://www.gitpsyched.com/posts/post1\" class=\"btn btn-danger btn-round\">What were about</a>\n            </div>\n        </div>\n        <br/><br/>\n    </div>\n</div>\n\n"
+module.exports = "<div class=\"main\">\n    <div class=\"section text-center\">\n    <div class=\"container\">\n        <div fxLayout=\"row\" *ngFor=\"let post of posts\">\n            <div fxLayout=\"30\" style=\"color:black;\">\n               <h2>{{post.title}}</h2>\n                <h3>{{post.body}}</h3>\n                <br>\n                <a style=\"color:white;\" href=\"https://www.gitpsyched.com/posts/post1\" class=\"btn btn-danger btn-round\">What were about</a>\n            </div>\n        </div>\n        <br/><br/>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -405,6 +411,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Post2Component; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -415,8 +422,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var Post2Component = (function () {
-    function Post2Component() {
+
+var Post2Component = /** @class */ (function () {
+    function Post2Component(dataService) {
+        var _this = this;
+        this.dataService = dataService;
+        // Access the Data Service's getUsers() method we defined
+        this.dataService.getUsers()
+            .subscribe(function (res) { return _this.posts = res; });
     }
     Post2Component.prototype.ngOnInit = function () { };
     Post2Component = __decorate([
@@ -425,9 +438,10 @@ var Post2Component = (function () {
             template: __webpack_require__("../../../../../src/app/blog-modules/post2/post2.component.html"),
             styles: [__webpack_require__("../../../../../src/app/blog-modules/post2/post2.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]) === "function" && _a || Object])
     ], Post2Component);
     return Post2Component;
+    var _a;
 }());
 
 //# sourceMappingURL=post2.component.js.map
@@ -446,6 +460,7 @@ var Post2Component = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__post2_component__ = __webpack_require__("../../../../../src/app/blog-modules/post2/post2.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material_card__ = __webpack_require__("../../../material/esm5/card.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -459,7 +474,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var Post2Module = (function () {
+
+var Post2Module = /** @class */ (function () {
     function Post2Module() {
     }
     Post2Module = __decorate([
@@ -473,13 +489,55 @@ var Post2Module = (function () {
             ],
             declarations: [__WEBPACK_IMPORTED_MODULE_5__post2_component__["a" /* Post2Component */]],
             exports: [__WEBPACK_IMPORTED_MODULE_5__post2_component__["a" /* Post2Component */]],
-            providers: []
+            providers: [__WEBPACK_IMPORTED_MODULE_7__data_service__["a" /* DataService */]]
         })
     ], Post2Module);
     return Post2Module;
 }());
 
 //# sourceMappingURL=post2.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/data.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DataService = /** @class */ (function () {
+    function DataService(_http) {
+        this._http = _http;
+    }
+    DataService.prototype.getUsers = function () {
+        var _this = this;
+        return this._http.get('/api/users')
+            .map(function (result) { return _this.result = result.json().data; });
+    };
+    DataService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+    ], DataService);
+    return DataService;
+    var _a;
+}());
+
+//# sourceMappingURL=data.service.js.map
 
 /***/ }),
 
@@ -524,7 +582,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var HomeComponent = (function () {
+var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
         this.model = {
             left: true,
@@ -578,7 +636,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // import { ComponentsModule } from '../components/components.module';
-var HomeModule = (function () {
+var HomeModule = /** @class */ (function () {
     function HomeModule() {
     }
     HomeModule = __decorate([
@@ -646,7 +704,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var FooterComponent = (function () {
+var FooterComponent = /** @class */ (function () {
     function FooterComponent() {
         this.test = new Date();
     }
@@ -709,7 +767,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var NavbarComponent = (function () {
+var NavbarComponent = /** @class */ (function () {
     function NavbarComponent(location, element) {
         this.location = location;
         this.element = element;

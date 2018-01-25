@@ -13,8 +13,11 @@ import { AboutComponent } from './blog-modules/About/About.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
 import { HomeModule } from './home/home.module';
+
+// Import the Http Module and our Data Service
+import { HttpModule } from '@angular/http';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +33,10 @@ import { HomeModule } from './home/home.module';
     RouterModule,
     AppRoutingModule,
     HomeModule,
+    HttpModule,
     MatCardModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ DataService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

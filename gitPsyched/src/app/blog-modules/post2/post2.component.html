@@ -1,10 +1,10 @@
 <div class="main">
     <div class="section text-center">
     <div class="container">
-        <div fxLayout="row">
+        <div fxLayout="row" *ngFor="let post of posts">
             <div fxLayout="30" style="color:black;">
-               <h2>Metacognitive Abilites</h2>
-                <h3>Becoming Self Aware</h3>
+               <h2>{{post.title}}</h2>
+                <h3>{{post.body}}</h3>
                 <br>
                 <a style="color:white;" href="https://www.gitpsyched.com/posts/post1" class="btn btn-danger btn-round">What were about</a>
             </div>
