@@ -7,3 +7,7 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
+// Connect mongoose to our database
+const config = require('./config/database');
+mongoose.connect(config.database);
